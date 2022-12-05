@@ -1,0 +1,23 @@
+.default-button {
+  width: 100%;
+  padding: 16px 24px;
+
+  background-color: var(--orange-500);
+  color: var(--white);
+
+  border-radius: 8px;
+  transition: filter 0.2s;
+
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media screen and (min-width: 1024px) {
+  .default-button:hover,
+  .default-button:focus {
+    filter: brightness(1.2);
+    outline: 2px solid var(--orange-500);
+    outline-offset: 2px;
+  }
+}

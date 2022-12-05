@@ -1,0 +1,18 @@
+/*
+    A pseudo-classe CSS  :root se equipara à raíz de uma árvore,
+    que por sua vez representa o documento. Aplicado ao HTML, :root representa o elemento <html>
+    e é identico ao seletor html, exceto que sua especificidade é mais alta.
+ */
+:root {
+  /* Variávis css */
+  --brown-500: #bc361b;
+  --orange-500: #f56414;
+
+  --gray-900: #222222;
+  --gray-800: #323232;
+  --gray-500: #666666;
+  --gray-100: #9d9a9a;
+  --gray-50: #fafafa;
+
+  --white: #ffffff;
+}

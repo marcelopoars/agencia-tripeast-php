@@ -1,0 +1,11 @@
+.message {
+  padding: 8px 0 0;
+}
+
+.message.success {
+  color: green;
+}
+
+.message.error {
+  color: #f00;
+}
