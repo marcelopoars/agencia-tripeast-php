@@ -30,6 +30,7 @@ if (isset($_POST['submited_create_user_form'])) {
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<!-- Renderiza HEAD  / necessário passar o nome da página -->
 <?php renderHeadPage('Cadastrar usuário | tripEast') ?>
 
 <body>
@@ -67,9 +68,8 @@ if (isset($_POST['submited_create_user_form'])) {
           <button class="default-button" type="submit" name="submited_create_user_form">Cadastrar usuário</button>
         </form>
 
-        <div>
-          <?php renderErrors() ?>
-        </div>
+        <!-- Chamada para a função que vai renderizar os erros se houver -->
+        <?php renderErrors() ?>
 
       </div>
     </section>

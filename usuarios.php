@@ -17,6 +17,7 @@ $users = getAllUsers($connect);
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<!-- Renderiza HEAD  / necessário passar o nome da página -->
 <?php renderHeadPage('Usuários | tripEast') ?>
 
 <body>

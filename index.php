@@ -3,7 +3,6 @@
 session_start();
 
 include_once('./layout/head.php');
-
 include_once('./layout/package.php');
 
 ?>
@@ -11,6 +10,7 @@ include_once('./layout/package.php');
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<!-- Renderiza HEAD  / necessário passar o nome da página -->
 <?php renderHeadPage('tripEast | Agência de turismo') ?>
 
 <body>

@@ -46,9 +46,8 @@ if (isset($_POST['submited_form_login'])) {
           <button class="default-button" type="submit" name="submited_form_login">Entrar</button>
         </form>
 
-        <div>
-          <?php renderErrors() ?>
-        </div>
+        <!-- Chamada para a função que vai renderizar os erros se houver -->
+        <?php renderErrors() ?>
       </div>
     </section>
     <!-- END CREATE PACKAGE -->

@@ -30,7 +30,6 @@ if (isset($_POST['submited_created_package_form'])) {
   $image = $_FILES['image']['name'];
 
   $lastPackageId = createPackage($connect);
-
 }
 
 ?>
@@ -38,6 +37,7 @@ if (isset($_POST['submited_created_package_form'])) {
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<!-- Renderiza HEAD  / necessário passar o nome da página -->
 <?php renderHeadPage('Cadastrar pacote | tripEast') ?>
 
 <body>
@@ -101,15 +101,14 @@ if (isset($_POST['submited_created_package_form'])) {
             <button class="default-button" type="submit" name="submited_created_package_form">Cadastrar pacote</button>
           </form>
 
-          <div>
-            <?php
+          <?php
 
-            if ($lastPackageId) {
-              echo "<ul><li class='message success'>Pacote cadastrado com sucesso!</li></ul>";
-            }
-            renderErrors();
-            ?>
-          </div>
+          if ($lastPackageId) {
+            echo "<div><ul><li class='message success'>Pacote cadastrado com sucesso!</li></ul></div>";
+          }
+          //Chamada para a função que vai renderizar os erros se houver
+          renderErrors();
+          ?>
         </div>
 
         <div class="package-preview">
