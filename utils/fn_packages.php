@@ -7,6 +7,19 @@ require_once('fn_upload_image.php');
 // Função para renderizar o pacote
 require_once('./layout/package.php');
 
+function getPackageById($connect, $id)
+{
+  $query = "SELECT * FROM packages WHERE id = $id";
+
+  $execute = mysqli_query($connect, $query);
+
+  $package = mysqli_fetch_assoc($execute);
+
+  if (!empty($package['id'])) {
+    return $package;
+  }
+}
+
 // Busca todos os pacotes cadastrados no banco de dados
 function getAllPackages($connect)
 {
@@ -29,6 +42,8 @@ function createPackage($connect)
     $date_back = date('Y-m-d', strtotime($_POST["date_back"]));
     $image = $_FILES['image']['name'];
     $image_tmp_name = $_FILES['image']['tmp_name'];
+    $imageSize = $_FILES['image']['size'];
+
     $_SESSION['errors'] = array();
 
     // Função que verifica de algum campo não foi preenchido no formulário
@@ -38,6 +53,10 @@ function createPackage($connect)
     // Se algum campo do formulário não for preenchido, gera um erro
     if (!$isValidInputs) {
       $_SESSION['errors'][] = "Todos os campos são obrigatórios.";
+    }
+
+    if ($imageSize > (500 * 1024)) {
+      $_SESSION['errors'][] = "Imagem muito grande. Max.: 500k";
     }
 
     // Caso não ocorra nenhum erro, é feito o INSERTO no banco de dados.
@@ -58,5 +77,16 @@ function createPackage($connect)
         return $lastPackageId;
       }
     }
+  }
+}
+
+function deletePackage($connect, $id)
+{
+  $query = "DELETE FROM packages WHERE id = $id";
+
+  $execute = mysqli_query($connect, $query);
+
+  if ($execute) {
+    return true;
   }
 }

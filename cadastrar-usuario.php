@@ -17,10 +17,10 @@ $password = '';
 $userConfirmPassword = '';
 
 if (isset($_POST['submited_create_user_form'])) {
-  $name = $_POST['username'];
+  $name = trim($_POST['username']);
   $email = $_POST['useremail'];
-  $password = $_POST['password'];
-  $userConfirmPassword = $_POST['confirm-password'];
+  $password = trim($_POST['password']);
+  $userConfirmPassword = trim($_POST['confirm-password']);
 
   createUser($connect);
 }

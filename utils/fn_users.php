@@ -16,10 +16,10 @@ function getAllUsers($connect)
 function createUser($connect)
 {
   if (isset($_POST['submited_create_user_form'])) {
-    $name = mysqli_real_escape_string($connect, $_POST['username']);
+    $name = trim(mysqli_real_escape_string($connect, $_POST['username']));
     $email = filter_input(INPUT_POST, 'useremail', FILTER_VALIDATE_EMAIL);
-    $password = !empty($_POST['password']) ? md5($_POST['password']) : '';
-    $userConfirmPassword = !empty($_POST['confirm-password']) ? md5($_POST['confirm-password']) : '';
+    $password = !empty($_POST['password']) ? md5(trim($_POST['password'])) : '';
+    $userConfirmPassword = !empty($_POST['confirm-password']) ? md5(trim($_POST['confirm-password'])) : '';
     $_SESSION['errors'] = array();
 
     // Verifica se existe algum campo vazio
