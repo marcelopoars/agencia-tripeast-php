@@ -335,7 +335,7 @@ h2 {
   text-decoration: none;
 
   border-radius: 4px;
-  transition: filter 0.2s;
+  transition: background-color 0.2s;
 
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -347,6 +347,10 @@ h2 {
 
 .package header .actions.delete {
   top: 48px;
+}
+
+.package header .actions.delete:hover {
+  background-color: red;
 }
 
 .package header div {
@@ -938,6 +942,37 @@ h2 {
   padding: 8px;
   text-align: left;
   border: 1px solid #eee;
+}
+
+.users .td-actions {
+  text-align: right;
+}
+
+.users .td-actions a {
+  padding: 4px 8px;
+
+  background-color: var(--orange-500);
+  color: var(--white);
+  text-decoration: none;
+
+  border-radius: 4px;
+  transition: background-color 0.2s;
+
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+}
+
+
+.users .td-actions a:hover {
+  background-color: red;
+}
+
+.users .td-actions a.disabled {
+  pointer-events: none;
+  user-select: none;
+  background-color: var(--gray-100);
+  opacity: 0.5;
 }
 
 @media screen and (min-width: 768px) {

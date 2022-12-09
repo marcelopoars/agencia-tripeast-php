@@ -62,3 +62,20 @@ function createUser($connect)
     }
   }
 }
+
+function deleteUser($connect, $id, $name)
+{
+  $query = "DELETE FROM users WHERE id = $id AND name <> '$name'";
+
+  $execute = mysqli_query($connect, $query);
+
+  if ($execute) {
+    return true;
+  }
+}
+
+if ( isset($_GET['id']) )
+{
+  deleteUser($connect, $_GET['id'], $_GET['name']);
+  header('location: ../usuarios.php');
+}

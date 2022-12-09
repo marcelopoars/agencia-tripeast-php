@@ -12,6 +12,14 @@ unset($_SESSION['errors']);
 
 $users = getAllUsers($connect);
 
+$userLoggedId = '';
+$disabledButtonClass = "";
+
+if (isset($_SESSION['logged'])) {
+  $userLoggedId = $_SESSION['user_logged_id'];;
+  $disabledButtonClass =  "disabled";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +42,7 @@ $users = getAllUsers($connect);
               <tr>
                 <th>Id</th>
                 <th>Nome</th>
-                <th>Email</th>
+                <th colspan="2">Email</th>
               </tr>
             </thead>
             <tbody>
@@ -43,6 +51,10 @@ $users = getAllUsers($connect);
                   <td><?php echo $user['id'] ?></td>
                   <td><?php echo $user['name'] ?></td>
                   <td><?php echo $user['email'] ?></td>
+
+                  <td class="td-actions">
+                    <a class="delete <?php echo ($user['id'] == $userLoggedId) ? $disabledButtonClass :  "" ?>" href="./utils/fn_users.php?id=<?php echo $user['id']; ?>&name=<?php echo $_SESSION['name']; ?>">Deletar</a>
+                  </td>
                 </tr>
               <?php } ?>
             </tbody>

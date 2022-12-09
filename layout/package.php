@@ -8,11 +8,11 @@ function renderPackage($id, $destination, $hotel, $stars, $price, $departure_dat
   $formatted_date_back = date('d \d\e M\/Y', strtotime($date_back)); // 30 de Nov de 2022
   $path_image = "uploads/$id/$image";
   $actions = "";
-  
+
   if (isset($_SESSION['logged'])) {
     $actions = "
-      <a class='actions edit' href='edit.php?id=$id'>Editar</a>
-      <a class='actions delete' href='deletar-pacote.php?id=$id'>Deletar</a>
+      <a class='actions edit' href='editar-pacote.php?package_id=$id'>Editar</a>
+      <a class='actions delete' href='deletar-pacote.php?package_id=$id'>Deletar</a>
     ";
   }
 

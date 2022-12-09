@@ -29,6 +29,7 @@ function login($connect)
       if (!empty($result['email'])) {
         session_start();
 
+        $_SESSION['user_logged_id'] = $result['id'];
         $_SESSION['name'] = $result['name'];
         $_SESSION['email'] = $result['email'];
         $_SESSION['logged'] = true; // variável para controle de acesso do usuário
